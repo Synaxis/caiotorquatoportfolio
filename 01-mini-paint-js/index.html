@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Paint</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+<header><h1>Mini Paint</h1><p>Canvas responsivo com JS puro.</p></header>
+<div class="tools">
+<input id="color" type="color" value="#1f2937" aria-label="Cor">
+<input id="size" type="range" min="2" max="32" value="8" aria-label="Tamanho">
+<button id="clean">Limpar</button><button id="save">Salvar PNG</button>
+</div>
+<canvas id="board" width="900" height="520"></canvas>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

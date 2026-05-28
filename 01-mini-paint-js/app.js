@@ -1,0 +1,11 @@
+const c=document.querySelector("#board"),ctx=c.getContext("2d");
+const color=document.querySelector("#color"),size=document.querySelector("#size");
+const clean=document.querySelector("#clean"),save=document.querySelector("#save");
+let down=false,last=[0,0];
+const pos=e=>{const r=c.getBoundingClientRect();return[(e.clientX-r.left)*c.width/r.width,(e.clientY-r.top)*c.height/r.height]};
+ctx.lineCap="round";ctx.lineJoin="round";
+c.onpointerdown=e=>{down=true;last=pos(e);c.setPointerCapture(e.pointerId)};
+c.onpointermove=e=>{if(!down)return;const p=pos(e);ctx.strokeStyle=color.value;ctx.lineWidth=size.value;ctx.beginPath();ctx.moveTo(...last);ctx.lineTo(...p);ctx.stroke();last=p};
+c.onpointerup=c.onpointerleave=()=>down=false;
+clean.onclick=()=>ctx.clearRect(0,0,c.width,c.height);
+save.onclick=()=>{const a=document.createElement("a");a.download="mini-paint.png";a.href=c.toDataURL();a.click()};

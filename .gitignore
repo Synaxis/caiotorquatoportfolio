@@ -1,0 +1,10 @@
+# Gerados localmente
+*.class
+*.jar
+*.png
+tarefas.json
+notas.json
+.dart_tool/
+build/
+.git/
+.DS_Store
